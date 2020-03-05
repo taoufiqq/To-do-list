@@ -3,63 +3,52 @@
 <head>
 	<title> Todo List</title> 
     <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
     </head> 
     <body style = "text-align: center;"> 
         
-        <input id="txt" type="text" placeholder="Add your Checkbox">
+        <input id="txt" type="text" placeholder="Add your Task">
         <p>To do List</p> 
-        <button onclick="Add()">Click me!</button> 
+        <button onclick="add();">Click me!</button> 
         <br> 
         <div id = "myDiv"></div> 
         <script> 
-        function Add() { 
-            var myDiv = document.getElementById("myDiv"); 
-              
-            // creating checkbox element 
-            var checkbox = document.createElement('input'); 
-              
-            // Assigning the attributes to created checkbox 
-            checkbox.type = "checkbox"; 
-            checkbox.name = "name"; 
-            checkbox.value = "value"; 
-            checkbox.id = "id";
-            checkbox.setAttribute("onclick","check()");
 
-            // creating label for checkbox 
-            var label = document.createElement('label'); 
+      var mydiv = document.getElementById("myDiv"); 
+      var text = document.getElementById("txt"); 
+    
+        function add() { 
+        
+        if (!text.value) {
 
-            var text = document.getElementById('txt').value;
-            // appending the created text to the created label tag  
-            label.appendChild(document.createTextNode(text)); 
-         
-            // appending the checkbox and label to div 
-            myDiv.appendChild(checkbox); 
-            myDiv.appendChild(label);
-            myDiv.innerHTML += "<br>" ;
+   	     alert("add your task please!!!!!!!!!!!!");
+        }else{
 
-            // if(checkbox.checked == true){
-            //   label.style.textDecoration = "line-through";
-            // }           
-        }
+      
+         var checkbox = document.createElement("input");
+
+           checkbox.type = "checkbox";
 
 
-        function check() {
-      var checkBox = document.getElementsById("id");
-      var text= document.getElementsById("txt");
+          var span = document.createElement("span");
 
-     for (let i = 0 ; i<checkBox.length ; i++){
-        if (checkBox[i].checked == true){
+          var  label = document.createTextNode(text.value);
 
-             text[i].style.textDecoration = 'line-through';
+          var  d = document.createElement("div");
 
-          }
-           else {
-            text[i].style.textDecoration = 'none';
-         }
+           span.appendChild(label);
+           d.appendChild(checkbox);
+           d.appendChild(span);
+ 
+
+           mydiv.appendChild(d);
+
+
    }
 
- }
+}
 
+ 
        </script>
 </body>
 </html>
