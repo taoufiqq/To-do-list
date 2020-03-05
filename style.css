@@ -22,7 +22,7 @@ button{
 	color: white;
 	border:none; 
 }
-input:checked+label {
+input:checked+span {
     text-decoration: line-through;
     /*color: red;*/
 }
